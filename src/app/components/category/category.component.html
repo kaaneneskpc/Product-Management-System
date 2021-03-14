@@ -1,11 +1,15 @@
-<!-- <div *ngIf="dataLoaded==false" class="d-flex align-items-center">
-  <strong>Loading...</strong>
-  <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
-</div> -->
 
-<!-- *ngIf="dataLoaded!=false"  -->
 
 <ul class="list-group">
   <!-- <li *ngFor="let category of categories" class="list-group-item">{{category.categoryId}}</li> -->
-  <li *ngFor="let category of categories" class="list-group-item">{{category.categoryName}}</li>
+
+
+  <li (click)="setCurrentCategory(category)" *ngFor="let category of categories" 
+  [class]="getCurrentCategoryClass(category)">{{category.categoryName}}</li>
+
+
 </ul>
+
+<h5 *ngIf="currentCategory">{{currentCategory.categoryName}} selected</h5>
+
+
