@@ -38,6 +38,9 @@ export class ProductAddComponent implements OnInit {
       this.productService.add(productModel).subscribe(response=>{
         console.log(response)
         this.toastrService.success(response.message,"Success")
+      },responseError=>{
+        console.log(responseError)
+        this.toastrService.error(responseError)
       })
       
      }
